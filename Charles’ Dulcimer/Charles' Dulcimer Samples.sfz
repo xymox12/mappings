@@ -1,0 +1,808 @@
+//=======================================================================
+//
+// Instrument Name: Charles' Dulcimer, recorder by Luis Flipe Costa
+//
+//=======================================================================
+//
+// Description: Charles’ Dulcimer is a beautiful Hammer Dulcimer made of
+// solid wood with 9 courses of strings on the treble bridge and 8
+// courses of strings on the bass bridge, recorded by Luis Filip Costa.
+// https://vstbuzz.com/freebies/charles-dulcimer/
+//
+//=======================================================================
+//
+// Credits: Luis Flipe Costa (Origial Kontakt Instrument Developer)
+//          https://vstbuzz.com/freebies/charles-dulcimer/
+//
+//          Charles' Dulcimer SFZ Mapping © 2022 by xymox12
+//          Based on the SFZ Template by AudioJunkie
+//
+//=======================================================================
+// Intended target SFZ players (opcode compatibility): Uses 1 Aria opcode
+// ampeg_attack_shape. This can be commetted out for non-compatible
+// players. SFIZZ currently ignores it.
+//=======================================================================
+
+<control>
+
+    // Background image (Uncomment if your sfz player supports it e.g. sfizz)
+    //image=./Resources/pictures/wallpaper.png
+
+    // Default_path is the relative default path under which the samples
+    // should be found.
+    default_path=./Charles' Dulcimer Samples/
+
+    // midi cc
+    #define $C_VOL 80
+    #define $R_VOL 81
+    #define $A_VOL 82
+    //#define $Attack 85
+    #define $Release 84
+
+
+    // Label controllers
+    label_cc$C_VOL=Close Vol
+    label_cc$R_VOL=Room Vol
+    label_cc$A_VOL=Ambient Vol
+	// label_cc$Attack=Attack
+    label_cc$Release=Release
+
+    // Set default values
+    set_cc$C_VOL=127
+    set_cc$R_VOL=64
+    set_cc$A_VOL=64
+	// set_cc$Attack=0.01
+
+
+<global>
+
+    amp_veltrack=100
+
+    // ADSR Envelope settings. Type: Floating point. Range: 0 to 100 Seconds
+    // Example: ampeg_attack=0.5 Assigns a .5 second attack to the samples
+    // in this instrument.
+    // ampeg_attack= ampeg_decay= ampeg_sustain= ampeg_release=
+
+    ampeg_attack=0.01
+    ampeg_decay=1
+    ampeg_release=2.3
+
+    // ARIA ampeg_attack_shape
+    ampeg_attack_shape=-3.3
+
+    // Sustain set to half way point, like Kontakt.
+    sustain_lo=64
+
+    // Controllers
+    // ampeg_attackcc$Attack=1
+    ampeg_releasecc$Release=20 // Provide Release controller as alternative to sustain pedal on/off.
+
+    // Filter: Two-pole low pass filter (12dB/octave)
+    cutoff=14000
+    resonance=0
+    fil_type=lpf_2p
+    fil_veltrack=435
+    fil_random=182
+
+    // Polophony
+    Polyphony=64
+
+    // Sequence length
+    seq_length=7
+
+
+// CLOSE MIC
+<master>
+
+    amplitude_oncc$C_VOL=100 //Close mic volume
+
+    <group> key=56
+        <region> seq_position=1 sample=C-S-1.wav offset=102018 end=1689668
+        <region> seq_position=2 sample=C-S-2.wav offset=56741 end=1568742
+        <region> seq_position=3 sample=C-S-3.wav offset=33553 end=1472137
+        <region> seq_position=4 sample=C-S-4.wav offset=77026 end=1642602
+        <region> seq_position=5 sample=C-S-2.wav offset=1568742 end=2793370 lokey=56 hikey=56 pitch_keycenter=57
+        <region> seq_position=6 sample=C-S-4.wav offset=1642602 end=3009680 lokey=56 hikey=56 pitch_keycenter=57
+        <region> seq_position=7 sample=C-S-3.wav offset=1472137 end=2761737 lokey=56 hikey=56 pitch_keycenter=57
+
+    <group> key=57
+        <region> seq_position=1 sample=C-S-1.wav offset=1689668 end=3035602
+        <region> seq_position=2 sample=C-S-2.wav offset=1568742 end=2793370
+        <region> seq_position=3 sample=C-S-3.wav offset=1472137 end=2761737
+        <region> seq_position=4 sample=C-S-4.wav offset=1642602 end=3009680
+        <region> seq_position=5 sample=C-S-2.wav offset=2793370 end=3977117 lokey=57 hikey=57 pitch_keycenter=58
+        <region> seq_position=6 sample=C-S-4.wav offset=3009680 end=4308634 lokey=57 hikey=57 pitch_keycenter=58
+        <region> seq_position=7 sample=C-S-3.wav offset=2761737 end=4112518 lokey=57 hikey=57 pitch_keycenter=58
+
+    <group> key=58
+        <region> seq_position=1 sample=C-S-1.wav offset=3035602 end=4257971
+        <region> seq_position=2 sample=C-S-2.wav offset=2793370 end=3977117
+        <region> seq_position=3 sample=C-S-3.wav offset=2761737 end=4112518
+        <region> seq_position=4 sample=C-S-4.wav offset=3009680 end=4308634
+        <region> seq_position=5 sample=C-S-2.wav offset=3977117 end=5534311 lokey=58 hikey=58 pitch_keycenter=59
+        <region> seq_position=6 sample=C-S-4.wav offset=4308634 end=5838785 lokey=58 hikey=58 pitch_keycenter=59
+        <region> seq_position=7 sample=C-S-3.wav offset=4112518 end=5832319 lokey=58 hikey=58 pitch_keycenter=59
+
+    <group> key=59
+        <region> seq_position=1 sample=C-S-1.wav offset=4257971 end=5850099
+        <region> seq_position=2 sample=C-S-2.wav offset=3977117 end=5534311
+        <region> seq_position=3 sample=C-S-3.wav offset=4112518 end=5832319
+        <region> seq_position=4 sample=C-S-4.wav offset=4308634 end=5838785
+        <region> seq_position=5 sample=C-S-2.wav offset=5534311 end=6581489 lokey=59 hikey=59 pitch_keycenter=60
+        <region> seq_position=6 sample=C-S-4.wav offset=5838785 end=7128514 lokey=59 hikey=59 pitch_keycenter=60
+        <region> seq_position=7 sample=C-S-3.wav offset=5832319 end=6700894 lokey=59 hikey=59 pitch_keycenter=60
+
+    <group> key=60
+        <region> seq_position=1 sample=C-S-1.wav offset=5850099 end=6808805
+        <region> seq_position=2 sample=C-S-2.wav offset=5534311 end=6581489
+        <region> seq_position=3 sample=C-S-3.wav offset=5832319 end=6700894
+        <region> seq_position=4 sample=C-S-4.wav offset=5838785 end=7128514
+        <region> seq_position=5 sample=C-S-2.wav offset=6581489 end=7675984 lokey=60 hikey=60 pitch_keycenter=61
+        <region> seq_position=6 sample=C-S-4.wav offset=7128514 end=8209155 lokey=60 hikey=60 pitch_keycenter=61
+        <region> seq_position=7 sample=C-S-3.wav offset=6700894 end=7676493 lokey=60 hikey=60 pitch_keycenter=61
+
+    <group> key=61
+        <region> seq_position=1 sample=C-S-1.wav offset=6808805 end=7664116
+        <region> seq_position=2 sample=C-S-2.wav offset=6581489 end=7675984
+        <region> seq_position=3 sample=C-S-3.wav offset=6700894 end=7676493
+        <region> seq_position=4 sample=C-S-4.wav offset=7128514 end=8209155
+        <region> seq_position=5 sample=C-S-2.wav offset=7675984 end=8785159 lokey=61 hikey=61 pitch_keycenter=62
+        <region> seq_position=6 sample=C-S-4.wav offset=8209155 end=9383145 lokey=61 hikey=61 pitch_keycenter=62
+        <region> seq_position=7 sample=C-S-3.wav offset=7676493 end=8821544 lokey=61 hikey=61 pitch_keycenter=62
+
+    <group> key=62
+        <region> seq_position=1 sample=C-S-1.wav offset=7664116 end=8594332
+        <region> seq_position=2 sample=C-S-2.wav offset=7675984 end=8785159
+        <region> seq_position=3 sample=C-S-3.wav offset=7676493 end=8821544
+        <region> seq_position=4 sample=C-S-4.wav offset=8209155 end=9383145
+        <region> seq_position=5 sample=C-S-2.wav offset=8785159 end=9678901 lokey=62 hikey=62 pitch_keycenter=63
+        <region> seq_position=6 sample=C-S-4.wav offset=9383145 end=10475745 lokey=62 hikey=62 pitch_keycenter=63
+        <region> seq_position=7 sample=C-S-3.wav offset=8821544 end=9632252 lokey=62 hikey=62 pitch_keycenter=63
+
+    <group> key=63
+        <region> seq_position=1 sample=C-S-1.wav offset=8594332 end=9470057
+        <region> seq_position=2 sample=C-S-2.wav offset=8785159 end=9678901
+        <region> seq_position=3 sample=C-S-3.wav offset=8821544 end=9632252
+        <region> seq_position=4 sample=C-S-4.wav offset=9383145 end=10475745
+        <region> seq_position=5 sample=C-S-2.wav offset=9678901 end=10630087 lokey=63 hikey=63 pitch_keycenter=64
+        <region> seq_position=6 sample=C-S-4.wav offset=10475745 end=11582268 lokey=63 hikey=63 pitch_keycenter=64
+        <region> seq_position=7 sample=C-S-3.wav offset=9632252 end=10545900 lokey=63 hikey=63 pitch_keycenter=64
+
+    <group> key=64
+        <region> seq_position=1 sample=C-S-1.wav offset=9470057 end=10157476
+        <region> seq_position=2 sample=C-S-2.wav offset=9678901 end=10630087
+        <region> seq_position=3 sample=C-S-3.wav offset=9632252 end=10545900
+        <region> seq_position=4 sample=C-S-4.wav offset=10475745 end=11582268
+        <region> seq_position=5 sample=C-S-2.wav offset=10630087 end=11756093 lokey=64 hikey=64 pitch_keycenter=65
+        <region> seq_position=6 sample=C-S-4.wav offset=11582268 end=12862938 lokey=64 hikey=64 pitch_keycenter=65
+        <region> seq_position=7 sample=C-S-3.wav offset=10545900 end=11653696 lokey=64 hikey=64 pitch_keycenter=65
+
+    <group> key=65
+        <region> seq_position=1 sample=C-S-1.wav offset=10157476 end=11289691
+        <region> seq_position=2 sample=C-S-2.wav offset=10630087 end=11756093
+        <region> seq_position=3 sample=C-S-3.wav offset=10545900 end=11653696
+        <region> seq_position=4 sample=C-S-4.wav offset=11582268 end=12862938
+        <region> seq_position=5 sample=C-S-2.wav offset=11756093 end=12466841 lokey=65 hikey=65 pitch_keycenter=66
+        <region> seq_position=6 sample=C-S-4.wav offset=12862938 end=14024215 lokey=65 hikey=65 pitch_keycenter=66
+        <region> seq_position=7 sample=C-S-3.wav offset=11653696 end=12513903 lokey=65 hikey=65 pitch_keycenter=66
+
+    <group> key=66
+        <region> seq_position=1 sample=C-S-1.wav offset=11289691 end=12063428
+        <region> seq_position=2 sample=C-S-2.wav offset=11756093 end=12466841
+        <region> seq_position=3 sample=C-S-3.wav offset=11653696 end=12513903
+        <region> seq_position=4 sample=C-S-4.wav offset=12862938 end=14024215
+        <region> seq_position=5 sample=C-S-2.wav offset=12466841 end=13669888 lokey=66 hikey=66 pitch_keycenter=67
+        <region> seq_position=6 sample=C-S-4.wav offset=14024215 end=15539448 lokey=66 hikey=66 pitch_keycenter=67
+        <region> seq_position=7 sample=C-S-3.wav offset=12513903 end=13748545 lokey=66 hikey=66 pitch_keycenter=67
+
+    <group> key=67
+        <region> seq_position=1 sample=C-S-1.wav offset=12063428 end=12972425
+        <region> seq_position=2 sample=C-S-2.wav offset=12466841 end=13669888
+        <region> seq_position=3 sample=C-S-3.wav offset=12513903 end=13748545
+        <region> seq_position=4 sample=C-S-4.wav offset=14024215 end=15539448
+        <region> seq_position=5 sample=C-S-2.wav offset=13669888 end=14772580 lokey=67 hikey=67 pitch_keycenter=68
+        <region> seq_position=6 sample=C-S-4.wav offset=15539448 end=16640232 lokey=67 hikey=67 pitch_keycenter=68
+        <region> seq_position=7 sample=C-S-3.wav offset=13748545 end=15039125 lokey=67 hikey=67 pitch_keycenter=68
+
+    <group> key=68
+        <region> seq_position=1 sample=C-S-1.wav offset=12972425 end=13985837
+        <region> seq_position=2 sample=C-S-2.wav offset=13669888 end=14772580
+        <region> seq_position=3 sample=C-S-3.wav offset=13748545 end=15039125
+        <region> seq_position=4 sample=C-S-4.wav offset=15539448 end=16640232
+        <region> seq_position=5 sample=C-S-2.wav offset=14772580 end=15775741 lokey=68 hikey=68 pitch_keycenter=69
+        <region> seq_position=6 sample=C-S-4.wav offset=16640232 end=17939524 lokey=68 hikey=68 pitch_keycenter=69
+        <region> seq_position=7 sample=C-S-3.wav offset=15039125 end=15994728 lokey=68 hikey=68 pitch_keycenter=69
+
+    <group> key=69
+        <region> seq_position=1 sample=C-S-1.wav offset=13985837 end=14903477
+        <region> seq_position=2 sample=C-S-2.wav offset=14772580 end=15775741
+        <region> seq_position=3 sample=C-S-3.wav offset=15039125 end=15994728
+        <region> seq_position=4 sample=C-S-4.wav offset=16640232 end=17939524
+        <region> seq_position=5 sample=C-S-2.wav offset=15775741 end=16782267 lokey=69 hikey=69 pitch_keycenter=70
+        <region> seq_position=6 sample=C-S-4.wav offset=17939524 end=19068355 lokey=69 hikey=69 pitch_keycenter=70
+        <region> seq_position=7 sample=C-S-3.wav offset=15994728 end=17048337 lokey=69 hikey=69 pitch_keycenter=70
+
+    <group> key=70
+        <region> seq_position=1 sample=C-S-1.wav offset=14903477 end=16024917
+        <region> seq_position=2 sample=C-S-2.wav offset=15775741 end=16782267
+        <region> seq_position=3 sample=C-S-3.wav offset=15994728 end=17048337
+        <region> seq_position=4 sample=C-S-4.wav offset=17939524 end=19068355
+        <region> seq_position=5 sample=C-S-2.wav offset=16782267 end=17927752 lokey=70 hikey=70 pitch_keycenter=71
+        <region> seq_position=6 sample=C-S-4.wav offset=19068355 end=20386414 lokey=70 hikey=70 pitch_keycenter=71
+        <region> seq_position=7 sample=C-S-3.wav offset=17048337 end=18342188 lokey=70 hikey=70 pitch_keycenter=71
+
+    <group> key=71
+        <region> seq_position=1 sample=C-S-1.wav offset=16024917 end=17193258
+        <region> seq_position=2 sample=C-S-2.wav offset=16782267 end=17927752
+        <region> seq_position=3 sample=C-S-3.wav offset=17048337 end=18342188
+        <region> seq_position=4 sample=C-S-4.wav offset=19068355 end=20386414
+        <region> seq_position=5 sample=C-S-2.wav offset=17927752 end=18741842 lokey=71 hikey=71 pitch_keycenter=72
+        <region> seq_position=6 sample=C-S-4.wav offset=20386414 end=21411452 lokey=71 hikey=71 pitch_keycenter=72
+        <region> seq_position=7 sample=C-S-3.wav offset=18342188 end=19055084 lokey=71 hikey=71 pitch_keycenter=72
+
+    <group> key=72
+        <region> seq_position=1 sample=C-S-1.wav offset=17193258 end=18007613
+        <region> seq_position=2 sample=C-S-2.wav offset=17927752 end=18741842
+        <region> seq_position=3 sample=C-S-3.wav offset=18342188 end=19055084
+        <region> seq_position=4 sample=C-S-4.wav offset=20386414 end=21411452
+        <region> seq_position=5 sample=C-S-2.wav offset=18741842 end=19672329 lokey=72 hikey=72 pitch_keycenter=73
+        <region> seq_position=6 sample=C-S-4.wav offset=21411452 end=22418416 lokey=72 hikey=72 pitch_keycenter=73
+        <region> seq_position=7 sample=C-S-3.wav offset=19055084 end=19930748 lokey=72 hikey=72 pitch_keycenter=73
+
+    <group> key=73
+        <region> seq_position=1 sample=C-S-1.wav offset=18007613 end=18987528
+        <region> seq_position=2 sample=C-S-2.wav offset=18741842 end=19672329
+        <region> seq_position=3 sample=C-S-3.wav offset=19055084 end=19930748
+        <region> seq_position=4 sample=C-S-4.wav offset=21411452 end=22418416
+        <region> seq_position=5 sample=C-S-2.wav offset=19672329 end=20389716 lokey=73 hikey=73 pitch_keycenter=74
+        <region> seq_position=6 sample=C-S-4.wav offset=22418416 end=23207050 lokey=73 hikey=73 pitch_keycenter=74
+        <region> seq_position=7 sample=C-S-3.wav offset=19930748 end=20651954 lokey=73 hikey=73 pitch_keycenter=74
+
+    <group> key=74
+        <region> seq_position=1 sample=C-S-1.wav offset=19013692 end=19782412
+        <region> seq_position=2 sample=C-S-2.wav offset=19672329 end=20389716
+        <region> seq_position=3 sample=C-S-3.wav offset=19930748 end=20651954
+        <region> seq_position=4 sample=C-S-4.wav offset=22418416 end=23207050
+        <region> seq_position=5 sample=C-S-2.wav offset=20389716 end=21137244 lokey=74 hikey=74 pitch_keycenter=75
+        <region> seq_position=6 sample=C-S-4.wav offset=23207050 end=24101320 lokey=74 hikey=74 pitch_keycenter=75
+        <region> seq_position=7 sample=C-S-3.wav offset=20651954 end=21450125 lokey=74 hikey=74 pitch_keycenter=75
+
+    <group> key=75
+        <region> seq_position=1 sample=C-S-1.wav offset=19782412 end=20731293
+        <region> seq_position=2 sample=C-S-2.wav offset=20389716 end=21137244
+        <region> seq_position=3 sample=C-S-3.wav offset=20651954 end=21450125
+        <region> seq_position=4 sample=C-S-4.wav offset=23207050 end=24101320
+        <region> seq_position=5 sample=C-S-2.wav offset=21137244 end=21955192 lokey=75 hikey=75 pitch_keycenter=76
+        <region> seq_position=6 sample=C-S-4.wav offset=24101320 end=25010893 lokey=75 hikey=75 pitch_keycenter=76
+        <region> seq_position=7 sample=C-S-3.wav offset=21450125 end=22388615 lokey=75 hikey=75 pitch_keycenter=76
+
+    <group> key=76
+        <region> seq_position=1 sample=C-S-1.wav offset=20731293 end=21725548
+        <region> seq_position=2 sample=C-S-2.wav offset=21137244 end=21955192
+        <region> seq_position=3 sample=C-S-3.wav offset=21450125 end=22388615
+        <region> seq_position=4 sample=C-S-4.wav offset=24101320 end=25010893
+        <region> seq_position=5 sample=C-S-2.wav offset=21955192 end=22759148 lokey=76 hikey=76 pitch_keycenter=77
+        <region> seq_position=6 sample=C-S-4.wav offset=25010893 end=25816725 lokey=76 hikey=76 pitch_keycenter=77
+        <region> seq_position=7 sample=C-S-3.wav offset=22388615 end=23214508 lokey=76 hikey=76 pitch_keycenter=77
+
+    <group> key=77
+        <region> seq_position=1 sample=C-S-1.wav offset=21725548 end=22542086
+        <region> seq_position=2 sample=C-S-2.wav offset=21955192 end=22759148
+        <region> seq_position=3 sample=C-S-3.wav offset=22388615 end=23214508
+        <region> seq_position=4 sample=C-S-4.wav offset=25010893 end=25816725
+        <region> seq_position=5 sample=C-S-2.wav offset=22759148 end=23613425 lokey=77 hikey=77 pitch_keycenter=78
+        <region> seq_position=6 sample=C-S-4.wav offset=25816725 end=26762221 lokey=77 hikey=77 pitch_keycenter=78
+        <region> seq_position=7 sample=C-S-3.wav offset=23214508 end=24068476 lokey=77 hikey=77 pitch_keycenter=78
+
+    <group> key=78
+        <region> seq_position=1 sample=C-S-1.wav offset=22542086 end=23380484
+        <region> seq_position=2 sample=C-S-2.wav offset=22759148 end=23613425
+        <region> seq_position=3 sample=C-S-3.wav offset=23214508 end=24068476
+        <region> seq_position=4 sample=C-S-4.wav offset=25816725 end=26762221
+        <region> seq_position=5 sample=C-S-2.wav offset=23613425 end=24404046 lokey=78 hikey=78 pitch_keycenter=79
+        <region> seq_position=6 sample=C-S-4.wav offset=26762221 end=27577040 lokey=78 hikey=78 pitch_keycenter=79
+        <region> seq_position=7 sample=C-S-3.wav offset=24068476 end=24814605 lokey=78 hikey=78 pitch_keycenter=79
+
+    <group> key=79
+        <region> seq_position=1 sample=C-S-1.wav offset=23380484 end=24079122
+        <region> seq_position=2 sample=C-S-2.wav offset=23613425 end=24404046
+        <region> seq_position=3 sample=C-S-3.wav offset=24068476 end=24814605
+        <region> seq_position=4 sample=C-S-4.wav offset=26762221 end=27577040
+        <region> seq_position=5 sample=C-S-2.wav offset=24404046 end=25125976 lokey=79 hikey=79 pitch_keycenter=80
+        <region> seq_position=6 sample=C-S-4.wav offset=27577040 end=28326553 lokey=79 hikey=79 pitch_keycenter=80
+        <region> seq_position=7 sample=C-S-3.wav offset=24814605 end=25525567 lokey=79 hikey=79 pitch_keycenter=80
+
+    <group> key=80
+        <region> seq_position=1 sample=C-S-1.wav offset=24079122 end=24841123
+        <region> seq_position=2 sample=C-S-2.wav offset=24404046 end=25125976
+        <region> seq_position=3 sample=C-S-3.wav offset=24814605 end=25525567
+        <region> seq_position=4 sample=C-S-4.wav offset=27577040 end=28326553
+        <region> seq_position=5 sample=C-S-2.wav offset=25125976 end=26164407 lokey=80 hikey=80 pitch_keycenter=81
+        <region> seq_position=6 sample=C-S-4.wav offset=28326553 end=29185847 lokey=80 hikey=80 pitch_keycenter=81
+        <region> seq_position=7 sample=C-S-3.wav offset=25525567 end=26164407 lokey=80 hikey=80 pitch_keycenter=81
+
+    <group> key=81
+        <region> seq_position=1 sample=C-S-1.wav offset=24841123 end=26164407
+        <region> seq_position=2 sample=C-S-2.wav offset=25125976 end=26164407
+        <region> seq_position=3 sample=C-S-3.wav offset=25525567 end=26164407
+        <region> seq_position=4 sample=C-S-4.wav offset=28326553 end=29185847
+        <region> seq_position=5 sample=C-S-2.wav offset=25125976 end=26164407
+        <region> seq_position=6 sample=C-S-4.wav offset=28326553 end=29185847
+        <region> seq_position=7 sample=C-S-3.wav offset=25525567 end=26164407
+
+
+// ROOM MIC
+<master>
+    amplitude_oncc$R_VOL=100 // Room mic
+
+    <group> key=56
+        <region> seq_position=1 sample=R-S-1.wav offset=30069 end=1617720
+        <region> seq_position=2 sample=R-S-2.wav offset=32851 end=1539846
+        <region> seq_position=3 sample=R-S-3.wav offset=34574 end=1472217
+        <region> seq_position=4 sample=R-S-4.wav offset=47725 end=1613294
+        <region> seq_position=5 sample=R-S-2.wav offset=1539846 end=2769475 lokey=56 hikey=56 pitch_keycenter=57
+        <region> seq_position=6 sample=R-S-4.wav offset=1613294 end=2980371 lokey=56 hikey=56 pitch_keycenter=57
+        <region> seq_position=7 sample=R-S-3.wav offset=1472217 end=2761809 lokey=56 hikey=56 pitch_keycenter=57
+
+    <group> key=57
+        <region> seq_position=1 sample=R-S-1.wav offset=1617720 end=2963648
+        <region> seq_position=2 sample=R-S-2.wav offset=1539846 end=2769475
+        <region> seq_position=3 sample=R-S-3.wav offset=1472217 end=2761809
+        <region> seq_position=4 sample=R-S-4.wav offset=1613294 end=2980371
+        <region> seq_position=5 sample=R-S-2.wav offset=2769475 end=3953227 lokey=57 hikey=57 pitch_keycenter=58
+        <region> seq_position=6 sample=R-S-4.wav offset=2980371 end=4279329 lokey=57 hikey=57 pitch_keycenter=58
+        <region> seq_position=7 sample=R-S-3.wav offset=2761809 end=4112599 lokey=57 hikey=57 pitch_keycenter=58
+
+    <group> key=58
+        <region> seq_position=1 sample=R-S-1.wav offset=2963648 end=4186030
+        <region> seq_position=2 sample=R-S-2.wav offset=2769475 end=3953227
+        <region> seq_position=3 sample=R-S-3.wav offset=2761809 end=4112599
+        <region> seq_position=4 sample=R-S-4.wav offset=2980371 end=4279329
+        <region> seq_position=5 sample=R-S-2.wav offset=3953227 end=5523788 lokey=58 hikey=58 pitch_keycenter=59
+        <region> seq_position=6 sample=R-S-4.wav offset=4279329 end=5931819 lokey=58 hikey=58 pitch_keycenter=59
+        <region> seq_position=7 sample=R-S-3.wav offset=4112599 end=5831697 lokey=58 hikey=58 pitch_keycenter=59
+
+    <group> key=59
+        <region> seq_position=1 sample=R-S-1.wav offset=4186030 end=5751353
+        <region> seq_position=2 sample=R-S-2.wav offset=3953227 end=5523788
+        <region> seq_position=3 sample=R-S-3.wav offset=4112599 end=5831697
+        <region> seq_position=4 sample=R-S-4.wav offset=4279329 end=5931819
+        <region> seq_position=5 sample=R-S-2.wav offset=5523788 end=6570964 lokey=59 hikey=59 pitch_keycenter=60
+        <region> seq_position=6 sample=R-S-4.wav offset=5931819 end=7221545 lokey=59 hikey=59 pitch_keycenter=60
+        <region> seq_position=7 sample=R-S-3.wav offset=5831697 end=6700267 lokey=59 hikey=59 pitch_keycenter=60
+
+    <group> key=60
+        <region> seq_position=1 sample=R-S-1.wav offset=5751353 end=6710055
+        <region> seq_position=2 sample=R-S-2.wav offset=5523788 end=6570964
+        <region> seq_position=3 sample=R-S-3.wav offset=5831697 end=6700267
+        <region> seq_position=4 sample=R-S-4.wav offset=5931819 end=7221545
+        <region> seq_position=5 sample=R-S-2.wav offset=6570964 end=7665459 lokey=60 hikey=60 pitch_keycenter=61
+        <region> seq_position=6 sample=R-S-4.wav offset=7221545 end=8302188 lokey=60 hikey=60 pitch_keycenter=61
+        <region> seq_position=7 sample=R-S-3.wav offset=6700267 end=7675868 lokey=60 hikey=60 pitch_keycenter=61
+
+    <group> key=61
+        <region> seq_position=1 sample=R-S-1.wav offset=6710055 end=7565369
+        <region> seq_position=2 sample=R-S-2.wav offset=6570964 end=7665459
+        <region> seq_position=3 sample=R-S-3.wav offset=6700267 end=7675868
+        <region> seq_position=4 sample=R-S-4.wav offset=7221545 end=8302188
+        <region> seq_position=5 sample=R-S-2.wav offset=7665459 end=8774632 lokey=61 hikey=61 pitch_keycenter=62
+        <region> seq_position=6 sample=R-S-4.wav offset=8302188 end=9476175 lokey=61 hikey=61 pitch_keycenter=62
+        <region> seq_position=7 sample=R-S-3.wav offset=7675868 end=8820917 lokey=61 hikey=61 pitch_keycenter=62
+
+    <group> key=62
+        <region> seq_position=1 sample=R-S-1.wav offset=7565369 end=8495582
+        <region> seq_position=2 sample=R-S-2.wav offset=7665459 end=8774632
+        <region> seq_position=3 sample=R-S-3.wav offset=7675868 end=8820917
+        <region> seq_position=4 sample=R-S-4.wav offset=8302188 end=9476175
+        <region> seq_position=5 sample=R-S-2.wav offset=8774632 end=9668375 lokey=62 hikey=62 pitch_keycenter=63
+        <region> seq_position=6 sample=R-S-4.wav offset=9476175 end=10568776 lokey=62 hikey=62 pitch_keycenter=63
+        <region> seq_position=7 sample=R-S-3.wav offset=8820917 end=9631625 lokey=62 hikey=62 pitch_keycenter=63
+
+    <group> key=63
+        <region> seq_position=1 sample=R-S-1.wav offset=8495582 end=9371309
+        <region> seq_position=2 sample=R-S-2.wav offset=8774632 end=9668375
+        <region> seq_position=3 sample=R-S-3.wav offset=8820917 end=9631625
+        <region> seq_position=4 sample=R-S-4.wav offset=9476175 end=10568776
+        <region> seq_position=5 sample=R-S-2.wav offset=9668375 end=10619558 lokey=63 hikey=63 pitch_keycenter=64
+        <region> seq_position=6 sample=R-S-4.wav offset=10568776 end=11675295 lokey=63 hikey=63 pitch_keycenter=64
+        <region> seq_position=7 sample=R-S-3.wav offset=9631625 end=10545271 lokey=63 hikey=63 pitch_keycenter=64
+
+    <group> key=64
+        <region> seq_position=1 sample=R-S-1.wav offset=9371309 end=10339855
+        <region> seq_position=2 sample=R-S-2.wav offset=9668375 end=10619558
+        <region> seq_position=3 sample=R-S-3.wav offset=9631625 end=10545271
+        <region> seq_position=4 sample=R-S-4.wav offset=10568776 end=11675295
+        <region> seq_position=5 sample=R-S-2.wav offset=10619558 end=11745564 lokey=64 hikey=64 pitch_keycenter=65
+        <region> seq_position=6 sample=R-S-4.wav offset=11675295 end=12955967 lokey=64 hikey=64 pitch_keycenter=65
+        <region> seq_position=7 sample=R-S-3.wav offset=10545271 end=11653067 lokey=64 hikey=64 pitch_keycenter=65
+
+    <group> key=65
+        <region> seq_position=1 sample=R-S-1.wav offset=10339855 end=11533061
+        <region> seq_position=2 sample=R-S-2.wav offset=10619558 end=11745564
+        <region> seq_position=3 sample=R-S-3.wav offset=10545271 end=11653067
+        <region> seq_position=4 sample=R-S-4.wav offset=11675295 end=12955967
+        <region> seq_position=5 sample=R-S-2.wav offset=11745564 end=12456308 lokey=65 hikey=65 pitch_keycenter=66
+        <region> seq_position=6 sample=R-S-4.wav offset=12955967 end=14117237 lokey=65 hikey=65 pitch_keycenter=66
+        <region> seq_position=7 sample=R-S-3.wav offset=11653067 end=12513268 lokey=65 hikey=65 pitch_keycenter=66
+
+    <group> key=66
+        <region> seq_position=1 sample=R-S-1.wav offset=11533061 end=12308452
+        <region> seq_position=2 sample=R-S-2.wav offset=11745564 end=12456308
+        <region> seq_position=3 sample=R-S-3.wav offset=11653067 end=12513268
+        <region> seq_position=4 sample=R-S-4.wav offset=12955967 end=14117237
+        <region> seq_position=5 sample=R-S-2.wav offset=12456308 end=13659358 lokey=66 hikey=66 pitch_keycenter=67
+        <region> seq_position=6 sample=R-S-4.wav offset=14117237 end=15632475 lokey=66 hikey=66 pitch_keycenter=67
+        <region> seq_position=7 sample=R-S-3.wav offset=12513268 end=13747915 lokey=66 hikey=66 pitch_keycenter=67
+
+    <group> key=67
+        <region> seq_position=1 sample=R-S-1.wav offset=12308452 end=13215794
+        <region> seq_position=2 sample=R-S-2.wav offset=12456308 end=13659358
+        <region> seq_position=3 sample=R-S-3.wav offset=12513268 end=13747915
+        <region> seq_position=4 sample=R-S-4.wav offset=14117237 end=15632475
+        <region> seq_position=5 sample=R-S-2.wav offset=13659358 end=14762049 lokey=67 hikey=67 pitch_keycenter=68
+        <region> seq_position=6 sample=R-S-4.wav offset=15632475 end=16733257 lokey=67 hikey=67 pitch_keycenter=68
+        <region> seq_position=7 sample=R-S-3.wav offset=13747915 end=15038493 lokey=67 hikey=67 pitch_keycenter=68
+
+    <group> key=68
+        <region> seq_position=1 sample=R-S-1.wav offset=13215794 end=14229204
+        <region> seq_position=2 sample=R-S-2.wav offset=13659358 end=14762049
+        <region> seq_position=3 sample=R-S-3.wav offset=13747915 end=15038493
+        <region> seq_position=4 sample=R-S-4.wav offset=15632475 end=16733257
+        <region> seq_position=5 sample=R-S-2.wav offset=14762049 end=15765216 lokey=68 hikey=68 pitch_keycenter=69
+        <region> seq_position=6 sample=R-S-4.wav offset=16733257 end=18032557 lokey=68 hikey=68 pitch_keycenter=69
+        <region> seq_position=7 sample=R-S-3.wav offset=15038493 end=15994103 lokey=68 hikey=68 pitch_keycenter=69
+
+    <group> key=69
+        <region> seq_position=1 sample=R-S-1.wav offset=14229204 end=15146851
+        <region> seq_position=2 sample=R-S-2.wav offset=14762049 end=15765216
+        <region> seq_position=3 sample=R-S-3.wav offset=15038493 end=15994103
+        <region> seq_position=4 sample=R-S-4.wav offset=16733257 end=18032557
+        <region> seq_position=5 sample=R-S-2.wav offset=15765216 end=16771733 lokey=69 hikey=69 pitch_keycenter=70
+        <region> seq_position=6 sample=R-S-4.wav offset=18032557 end=19161378 lokey=69 hikey=69 pitch_keycenter=70
+        <region> seq_position=7 sample=R-S-3.wav offset=15994103 end=17047705 lokey=69 hikey=69 pitch_keycenter=70
+
+    <group> key=70
+        <region> seq_position=1 sample=R-S-1.wav offset=15146851 end=16268282
+        <region> seq_position=2 sample=R-S-2.wav offset=15765216 end=16771733
+        <region> seq_position=3 sample=R-S-3.wav offset=15994103 end=17047705
+        <region> seq_position=4 sample=R-S-4.wav offset=18032557 end=19161378
+        <region> seq_position=5 sample=R-S-2.wav offset=16771733 end=18057776 lokey=70 hikey=70 pitch_keycenter=71
+        <region> seq_position=6 sample=R-S-4.wav offset=19161378 end=20524855 lokey=70 hikey=70 pitch_keycenter=71
+        <region> seq_position=7 sample=R-S-3.wav offset=17047705 end=18260287 lokey=70 hikey=70 pitch_keycenter=71
+
+    <group> key=71
+        <region> seq_position=1 sample=R-S-1.wav offset=16268282 end=17372978
+        <region> seq_position=2 sample=R-S-2.wav offset=16771733 end=18057776
+        <region> seq_position=3 sample=R-S-3.wav offset=17047705 end=18260287
+        <region> seq_position=4 sample=R-S-4.wav offset=19161378 end=20524855
+        <region> seq_position=5 sample=R-S-2.wav offset=18057776 end=18871878 lokey=71 hikey=71 pitch_keycenter=72
+        <region> seq_position=6 sample=R-S-4.wav offset=20524855 end=21541935 lokey=71 hikey=71 pitch_keycenter=72
+        <region> seq_position=7 sample=R-S-3.wav offset=18260287 end=18973193 lokey=71 hikey=71 pitch_keycenter=72
+
+    <group> key=72
+        <region> seq_position=1 sample=R-S-1.wav offset=17372978 end=18187344
+        <region> seq_position=2 sample=R-S-2.wav offset=18057776 end=18871878
+        <region> seq_position=3 sample=R-S-3.wav offset=18260287 end=18973193
+        <region> seq_position=4 sample=R-S-4.wav offset=20524855 end=21541935
+        <region> seq_position=5 sample=R-S-2.wav offset=18871878 end=19802350 lokey=72 hikey=72 pitch_keycenter=73
+        <region> seq_position=6 sample=R-S-4.wav offset=21541935 end=22548884 lokey=72 hikey=72 pitch_keycenter=73
+        <region> seq_position=7 sample=R-S-3.wav offset=18973193 end=19848842 lokey=72 hikey=72 pitch_keycenter=73
+
+    <group> key=73
+        <region> seq_position=1 sample=R-S-1.wav offset=18187344 end=19193407
+        <region> seq_position=2 sample=R-S-2.wav offset=18871878 end=19802350
+        <region> seq_position=3 sample=R-S-3.wav offset=18973193 end=19848842
+        <region> seq_position=4 sample=R-S-4.wav offset=21541935 end=22548884
+        <region> seq_position=5 sample=R-S-2.wav offset=19802350 end=20519752 lokey=73 hikey=73 pitch_keycenter=74
+        <region> seq_position=6 sample=R-S-4.wav offset=22548884 end=23337530 lokey=73 hikey=73 pitch_keycenter=74
+        <region> seq_position=7 sample=R-S-3.wav offset=19848842 end=20570064 lokey=73 hikey=73 pitch_keycenter=74
+
+    <group> key=74
+        <region> seq_position=1 sample=R-S-1.wav offset=19193407 end=19962143
+        <region> seq_position=2 sample=R-S-2.wav offset=19802350 end=20519752
+        <region> seq_position=3 sample=R-S-3.wav offset=19848842 end=20570064
+        <region> seq_position=4 sample=R-S-4.wav offset=22548884 end=23337530
+        <region> seq_position=5 sample=R-S-2.wav offset=20519752 end=21267281 lokey=74 hikey=74 pitch_keycenter=75
+        <region> seq_position=6 sample=R-S-4.wav offset=23337530 end=24231803 lokey=74 hikey=74 pitch_keycenter=75
+        <region> seq_position=7 sample=R-S-3.wav offset=20570064 end=21368236 lokey=74 hikey=74 pitch_keycenter=75
+
+    <group> key=75
+        <region> seq_position=1 sample=R-S-1.wav offset=19962143 end=20911024
+        <region> seq_position=2 sample=R-S-2.wav offset=20519752 end=21267281
+        <region> seq_position=3 sample=R-S-3.wav offset=20570064 end=21368236
+        <region> seq_position=4 sample=R-S-4.wav offset=23337530 end=24231803
+        <region> seq_position=5 sample=R-S-2.wav offset=21267281 end=22020088 lokey=75 hikey=75 pitch_keycenter=76
+        <region> seq_position=6 sample=R-S-4.wav offset=24231803 end=25065455 lokey=75 hikey=75 pitch_keycenter=76
+        <region> seq_position=7 sample=R-S-3.wav offset=21368236 end=22329933 lokey=75 hikey=75 pitch_keycenter=76
+
+    <group> key=76
+        <region> seq_position=1 sample=R-S-1.wav offset=20911024 end=21771437
+        <region> seq_position=2 sample=R-S-2.wav offset=21267281 end=22020088
+        <region> seq_position=3 sample=R-S-3.wav offset=21368236 end=22329933
+        <region> seq_position=4 sample=R-S-4.wav offset=24231803 end=25065455
+        <region> seq_position=5 sample=R-S-2.wav offset=22020088 end=22795554 lokey=76 hikey=76 pitch_keycenter=77
+        <region> seq_position=6 sample=R-S-4.wav offset=25065455 end=25865130 lokey=76 hikey=76 pitch_keycenter=77
+        <region> seq_position=7 sample=R-S-3.wav offset=22329933 end=23221498 lokey=76 hikey=76 pitch_keycenter=77
+
+    <group> key=77
+        <region> seq_position=1 sample=R-S-1.wav offset=21771437 end=22610884
+        <region> seq_position=2 sample=R-S-2.wav offset=22020088 end=22795554
+        <region> seq_position=3 sample=R-S-3.wav offset=22329933 end=23221498
+        <region> seq_position=4 sample=R-S-4.wav offset=25065455 end=25865130
+        <region> seq_position=5 sample=R-S-2.wav offset=22795554 end=23649828 lokey=77 hikey=77 pitch_keycenter=78
+        <region> seq_position=6 sample=R-S-4.wav offset=25865130 end=26810622 lokey=77 hikey=77 pitch_keycenter=78
+        <region> seq_position=7 sample=R-S-3.wav offset=23221498 end=24075464 lokey=77 hikey=77 pitch_keycenter=78
+
+    <group> key=78
+        <region> seq_position=1 sample=R-S-1.wav offset=22610884 end=23449281
+        <region> seq_position=2 sample=R-S-2.wav offset=22795554 end=23649828
+        <region> seq_position=3 sample=R-S-3.wav offset=23221498 end=24075464
+        <region> seq_position=4 sample=R-S-4.wav offset=25865130 end=26810622
+        <region> seq_position=5 sample=R-S-2.wav offset=23649828 end=24446890 lokey=78 hikey=78 pitch_keycenter=79
+        <region> seq_position=6 sample=R-S-4.wav offset=26810622 end=27629221 lokey=78 hikey=78 pitch_keycenter=79
+        <region> seq_position=7 sample=R-S-3.wav offset=24075464 end=24818490 lokey=78 hikey=78 pitch_keycenter=79
+
+    <group> key=79
+        <region> seq_position=1 sample=R-S-1.wav offset=23449281 end=24209800
+        <region> seq_position=2 sample=R-S-2.wav offset=23649828 end=24446890
+        <region> seq_position=3 sample=R-S-3.wav offset=24075464 end=24818490
+        <region> seq_position=4 sample=R-S-4.wav offset=26810622 end=27629221
+        <region> seq_position=5 sample=R-S-2.wav offset=24446890 end=25176080 lokey=79 hikey=79 pitch_keycenter=80
+        <region> seq_position=6 sample=R-S-4.wav offset=27629221 end=28386010 lokey=79 hikey=79 pitch_keycenter=80
+        <region> seq_position=7 sample=R-S-3.wav offset=24818490 end=25519712 lokey=79 hikey=79 pitch_keycenter=80
+
+    <group> key=80
+        <region> seq_position=1 sample=R-S-1.wav offset=24209800 end=24953272
+        <region> seq_position=2 sample=R-S-2.wav offset=24446890 end=25176080
+        <region> seq_position=3 sample=R-S-3.wav offset=24818490 end=25519712
+        <region> seq_position=4 sample=R-S-4.wav offset=27629221 end=28386010
+        <region> seq_position=5 sample=R-S-2.wav offset=25176080 end=26148021 lokey=80 hikey=80 pitch_keycenter=81
+        <region> seq_position=6 sample=R-S-4.wav offset=28386010 end=29245292 lokey=80 hikey=80 pitch_keycenter=81
+        <region> seq_position=7 sample=R-S-3.wav offset=25519712 end=26449577 lokey=80 hikey=80 pitch_keycenter=81
+
+    <group> key=81
+        <region> seq_position=1 sample=R-S-1.wav offset=24953272 end=26235699
+        <region> seq_position=2 sample=R-S-2.wav offset=25176080 end=26148021
+        <region> seq_position=3 sample=R-S-3.wav offset=25519712 end=26449577
+        <region> seq_position=4 sample=R-S-4.wav offset=28386010 end=29245292
+        <region> seq_position=5 sample=R-S-2.wav offset=25176080 end=26148021
+        <region> seq_position=6 sample=R-S-4.wav offset=28386010 end=29245292
+        <region> seq_position=7 sample=R-S-3.wav offset=25519712 end=26449577
+
+// Ambient Mic
+<master>
+    amplitude_oncc$A_VOL=100
+
+    <group> key=56
+        <region> seq_position=1 sample=A-S-1.wav offset=50234 end=1637887
+        <region> seq_position=2 sample=A-S-2.wav offset=57119 end=1568484
+        <region> seq_position=3 sample=A-S-3.wav offset=33930 end=1472514
+        <region> seq_position=4 sample=A-S-4.wav offset=40256 end=1605829
+        <region> seq_position=5 sample=A-S-2.wav offset=1568484 end=2793744 lokey=56 hikey=56 pitch_keycenter=57
+        <region> seq_position=6 sample=A-S-4.wav offset=1605829 end=2972903 lokey=56 hikey=56 pitch_keycenter=57
+        <region> seq_position=7 sample=A-S-3.wav offset=1472514 end=2762110 lokey=56 hikey=56 pitch_keycenter=57
+
+    <group> key=57
+        <region> seq_position=1 sample=A-S-1.wav offset=1637887 end=2983814
+        <region> seq_position=2 sample=A-S-2.wav offset=1568484 end=2793744
+        <region> seq_position=3 sample=A-S-3.wav offset=1472514 end=2762110
+        <region> seq_position=4 sample=A-S-4.wav offset=1605829 end=2972903
+        <region> seq_position=5 sample=A-S-2.wav offset=2793744 end=3977495 lokey=57 hikey=57 pitch_keycenter=58
+        <region> seq_position=6 sample=A-S-4.wav offset=2972903 end=4271860 lokey=57 hikey=57 pitch_keycenter=58
+        <region> seq_position=7 sample=A-S-3.wav offset=2762110 end=4112896 lokey=57 hikey=57 pitch_keycenter=58
+
+    <group> key=58
+        <region> seq_position=1 sample=A-S-1.wav offset=2983814 end=4206192
+        <region> seq_position=2 sample=A-S-2.wav offset=2793744 end=3977495
+        <region> seq_position=3 sample=A-S-3.wav offset=2762110 end=4112896
+        <region> seq_position=4 sample=A-S-4.wav offset=2972903 end=4271860
+        <region> seq_position=5 sample=A-S-2.wav offset=3977495 end=5540613 lokey=58 hikey=58 pitch_keycenter=59
+        <region> seq_position=6 sample=A-S-4.wav offset=4271860 end=5932408 lokey=58 hikey=58 pitch_keycenter=59
+        <region> seq_position=7 sample=A-S-3.wav offset=4112896 end=5791617 lokey=58 hikey=58 pitch_keycenter=59
+
+    <group> key=59
+        <region> seq_position=1 sample=A-S-1.wav offset=4206192 end=5532026
+        <region> seq_position=2 sample=A-S-2.wav offset=3977495 end=5540613
+        <region> seq_position=3 sample=A-S-3.wav offset=4112896 end=5791617
+        <region> seq_position=4 sample=A-S-4.wav offset=4271860 end=5932408
+        <region> seq_position=5 sample=A-S-2.wav offset=5540613 end=6587790 lokey=59 hikey=59 pitch_keycenter=60
+        <region> seq_position=6 sample=A-S-4.wav offset=5932408 end=7222135 lokey=59 hikey=59 pitch_keycenter=60
+        <region> seq_position=7 sample=A-S-3.wav offset=5791617 end=6661809 lokey=59 hikey=59 pitch_keycenter=60
+
+    <group> key=60
+        <region> seq_position=1 sample=A-S-1.wav offset=5532026 end=6490732
+        <region> seq_position=2 sample=A-S-2.wav offset=5540613 end=6587790
+        <region> seq_position=3 sample=A-S-3.wav offset=5791617 end=6661809
+        <region> seq_position=4 sample=A-S-4.wav offset=5932408 end=7222135
+        <region> seq_position=5 sample=A-S-2.wav offset=6587790 end=7682285 lokey=60 hikey=60 pitch_keycenter=61
+        <region> seq_position=6 sample=A-S-4.wav offset=7222135 end=8302781 lokey=60 hikey=60 pitch_keycenter=61
+        <region> seq_position=7 sample=A-S-3.wav offset=6661809 end=7637410 lokey=60 hikey=60 pitch_keycenter=61
+
+    <group> key=61
+        <region> seq_position=1 sample=A-S-1.wav offset=6490732 end=7346082
+        <region> seq_position=2 sample=A-S-2.wav offset=6587790 end=7682285
+        <region> seq_position=3 sample=A-S-3.wav offset=6661809 end=7637410
+        <region> seq_position=4 sample=A-S-4.wav offset=7222135 end=8302781
+        <region> seq_position=5 sample=A-S-2.wav offset=7682285 end=8791457 lokey=61 hikey=61 pitch_keycenter=62
+        <region> seq_position=6 sample=A-S-4.wav offset=8302781 end=9476766 lokey=61 hikey=61 pitch_keycenter=62
+        <region> seq_position=7 sample=A-S-3.wav offset=7637410 end=8782462 lokey=61 hikey=61 pitch_keycenter=62
+
+    <group> key=62
+        <region> seq_position=1 sample=A-S-1.wav offset=7346082 end=8276257
+        <region> seq_position=2 sample=A-S-2.wav offset=7682285 end=8791457
+        <region> seq_position=3 sample=A-S-3.wav offset=7637410 end=8782462
+        <region> seq_position=4 sample=A-S-4.wav offset=8302781 end=9476766
+        <region> seq_position=5 sample=A-S-2.wav offset=8791457 end=9685203 lokey=62 hikey=62 pitch_keycenter=63
+        <region> seq_position=6 sample=A-S-4.wav offset=9476766 end=10569366 lokey=62 hikey=62 pitch_keycenter=63
+        <region> seq_position=7 sample=A-S-3.wav offset=8782462 end=9593167 lokey=62 hikey=62 pitch_keycenter=63
+
+    <group> key=63
+        <region> seq_position=1 sample=A-S-1.wav offset=8276257 end=9151986
+        <region> seq_position=2 sample=A-S-2.wav offset=8791457 end=9685203
+        <region> seq_position=3 sample=A-S-3.wav offset=8782462 end=9593167
+        <region> seq_position=4 sample=A-S-4.wav offset=9476766 end=10569366
+        <region> seq_position=5 sample=A-S-2.wav offset=9685203 end=10636386 lokey=63 hikey=63 pitch_keycenter=64
+        <region> seq_position=6 sample=A-S-4.wav offset=10569366 end=11675885 lokey=63 hikey=63 pitch_keycenter=64
+        <region> seq_position=7 sample=A-S-3.wav offset=9593167 end=10506815 lokey=63 hikey=63 pitch_keycenter=64
+
+    <group> key=64
+        <region> seq_position=1 sample=A-S-1.wav offset=9151986 end=10078740
+        <region> seq_position=2 sample=A-S-2.wav offset=9685203 end=10636386
+        <region> seq_position=3 sample=A-S-3.wav offset=9593167 end=10506815
+        <region> seq_position=4 sample=A-S-4.wav offset=10569366 end=11675885
+        <region> seq_position=5 sample=A-S-2.wav offset=10636386 end=11762390 lokey=64 hikey=64 pitch_keycenter=65
+        <region> seq_position=6 sample=A-S-4.wav offset=11675885 end=12956558 lokey=64 hikey=64 pitch_keycenter=65
+        <region> seq_position=7 sample=A-S-3.wav offset=10506815 end=11614610 lokey=64 hikey=64 pitch_keycenter=65
+
+    <group> key=65
+        <region> seq_position=1 sample=A-S-1.wav offset=10078740 end=10865364
+        <region> seq_position=2 sample=A-S-2.wav offset=10636386 end=11762390
+        <region> seq_position=3 sample=A-S-3.wav offset=10506815 end=11614610
+        <region> seq_position=4 sample=A-S-4.wav offset=11675885 end=12956558
+        <region> seq_position=5 sample=A-S-2.wav offset=11762390 end=12473136 lokey=65 hikey=65 pitch_keycenter=66
+        <region> seq_position=6 sample=A-S-4.wav offset=12956558 end=14117828 lokey=65 hikey=65 pitch_keycenter=66
+        <region> seq_position=7 sample=A-S-3.wav offset=11614610 end=12474810 lokey=65 hikey=65 pitch_keycenter=66
+
+    <group> key=66
+        <region> seq_position=1 sample=A-S-1.wav offset=10865364 end=11588545
+        <region> seq_position=2 sample=A-S-2.wav offset=11762390 end=12473136
+        <region> seq_position=3 sample=A-S-3.wav offset=11614610 end=12474810
+        <region> seq_position=4 sample=A-S-4.wav offset=12956558 end=14117828
+        <region> seq_position=5 sample=A-S-2.wav offset=12473136 end=13676186 lokey=66 hikey=66 pitch_keycenter=67
+        <region> seq_position=6 sample=A-S-4.wav offset=14117828 end=15633066 lokey=66 hikey=66 pitch_keycenter=67
+        <region> seq_position=7 sample=A-S-3.wav offset=12474810 end=13709457 lokey=66 hikey=66 pitch_keycenter=67
+
+    <group> key=67
+        <region> seq_position=1 sample=A-S-1.wav offset=11588545 end=12548160
+        <region> seq_position=2 sample=A-S-2.wav offset=12473136 end=13676186
+        <region> seq_position=3 sample=A-S-3.wav offset=12474810 end=13709457
+        <region> seq_position=4 sample=A-S-4.wav offset=14117828 end=15633066
+        <region> seq_position=5 sample=A-S-2.wav offset=13676186 end=14778875 lokey=67 hikey=67 pitch_keycenter=68
+        <region> seq_position=6 sample=A-S-4.wav offset=15633066 end=16733848 lokey=67 hikey=67 pitch_keycenter=68
+        <region> seq_position=7 sample=A-S-3.wav offset=13709457 end=15000038 lokey=67 hikey=67 pitch_keycenter=68
+
+    <group> key=68
+        <region> seq_position=1 sample=A-S-1.wav offset=12548160 end=13257909
+        <region> seq_position=2 sample=A-S-2.wav offset=13676186 end=14778875
+        <region> seq_position=3 sample=A-S-3.wav offset=13709457 end=15000038
+        <region> seq_position=4 sample=A-S-4.wav offset=15633066 end=16733848
+        <region> seq_position=5 sample=A-S-2.wav offset=14778875 end=15782042 lokey=68 hikey=68 pitch_keycenter=69
+        <region> seq_position=6 sample=A-S-4.wav offset=16733848 end=18033148 lokey=68 hikey=68 pitch_keycenter=69
+        <region> seq_position=7 sample=A-S-3.wav offset=15000038 end=15955645 lokey=68 hikey=68 pitch_keycenter=69
+
+    <group> key=69
+        <region> seq_position=1 sample=A-S-1.wav offset=13257909 end=14479157
+        <region> seq_position=2 sample=A-S-2.wav offset=14778875 end=15782042
+        <region> seq_position=3 sample=A-S-3.wav offset=15000038 end=15955645
+        <region> seq_position=4 sample=A-S-4.wav offset=16733848 end=18033148
+        <region> seq_position=5 sample=A-S-2.wav offset=15782042 end=16788567 lokey=69 hikey=69 pitch_keycenter=70
+        <region> seq_position=6 sample=A-S-4.wav offset=18033148 end=19161968 lokey=69 hikey=69 pitch_keycenter=70
+        <region> seq_position=7 sample=A-S-3.wav offset=15955645 end=17009247 lokey=69 hikey=69 pitch_keycenter=70
+
+    <group> key=70
+        <region> seq_position=1 sample=A-S-1.wav offset=14479157 end=15600587
+        <region> seq_position=2 sample=A-S-2.wav offset=15782042 end=16788567
+        <region> seq_position=3 sample=A-S-3.wav offset=15955645 end=17009247
+        <region> seq_position=4 sample=A-S-4.wav offset=18033148 end=19161968
+        <region> seq_position=5 sample=A-S-2.wav offset=16788567 end=18109992 lokey=70 hikey=70 pitch_keycenter=71
+        <region> seq_position=6 sample=A-S-4.wav offset=19161968 end=20565055 lokey=70 hikey=70 pitch_keycenter=71
+        <region> seq_position=7 sample=A-S-3.wav offset=17009247 end=17950936 lokey=70 hikey=70 pitch_keycenter=71
+
+    <group> key=71
+        <region> seq_position=1 sample=A-S-1.wav offset=15600587 end=16718129
+        <region> seq_position=2 sample=A-S-2.wav offset=16788567 end=18109992
+        <region> seq_position=3 sample=A-S-3.wav offset=17009247 end=17950936
+        <region> seq_position=4 sample=A-S-4.wav offset=19161968 end=20565055
+        <region> seq_position=5 sample=A-S-2.wav offset=18109992 end=18924094 lokey=71 hikey=71 pitch_keycenter=72
+        <region> seq_position=6 sample=A-S-4.wav offset=20565055 end=21590103 lokey=71 hikey=71 pitch_keycenter=72
+        <region> seq_position=7 sample=A-S-3.wav offset=17950936 end=18663843 lokey=71 hikey=71 pitch_keycenter=72
+
+    <group> key=72
+        <region> seq_position=1 sample=A-S-1.wav offset=16718129 end=17573126
+        <region> seq_position=2 sample=A-S-2.wav offset=18109992 end=18924094
+        <region> seq_position=3 sample=A-S-3.wav offset=17950936 end=18663843
+        <region> seq_position=4 sample=A-S-4.wav offset=20565055 end=21590103
+        <region> seq_position=5 sample=A-S-2.wav offset=18924094 end=19854566 lokey=72 hikey=72 pitch_keycenter=73
+        <region> seq_position=6 sample=A-S-4.wav offset=21590103 end=22597052 lokey=72 hikey=72 pitch_keycenter=73
+        <region> seq_position=7 sample=A-S-3.wav offset=18663843 end=19539491 lokey=72 hikey=72 pitch_keycenter=73
+
+    <group> key=73
+        <region> seq_position=1 sample=A-S-1.wav offset=17573126 end=18579188
+        <region> seq_position=2 sample=A-S-2.wav offset=18924094 end=19854566
+        <region> seq_position=3 sample=A-S-3.wav offset=18663843 end=19539491
+        <region> seq_position=4 sample=A-S-4.wav offset=21590103 end=22597052
+        <region> seq_position=5 sample=A-S-2.wav offset=19854566 end=20571969 lokey=73 hikey=73 pitch_keycenter=74
+        <region> seq_position=6 sample=A-S-4.wav offset=22597052 end=23385701 lokey=73 hikey=73 pitch_keycenter=74
+        <region> seq_position=7 sample=A-S-3.wav offset=19539491 end=20260715 lokey=73 hikey=73 pitch_keycenter=74
+
+    <group> key=74
+        <region> seq_position=1 sample=A-S-1.wav offset=18579188 end=19347925
+        <region> seq_position=2 sample=A-S-2.wav offset=19854566 end=20571969
+        <region> seq_position=3 sample=A-S-3.wav offset=19539491 end=20260715
+        <region> seq_position=4 sample=A-S-4.wav offset=22597052 end=23385701
+        <region> seq_position=5 sample=A-S-2.wav offset=20571969 end=21319497 lokey=74 hikey=74 pitch_keycenter=75
+        <region> seq_position=6 sample=A-S-4.wav offset=23385701 end=24279971 lokey=74 hikey=74 pitch_keycenter=75
+        <region> seq_position=7 sample=A-S-3.wav offset=20260715 end=21058885 lokey=74 hikey=74 pitch_keycenter=75
+
+    <group> key=75
+        <region> seq_position=1 sample=A-S-1.wav offset=19347925 end=20296806
+        <region> seq_position=2 sample=A-S-2.wav offset=20571969 end=21319497
+        <region> seq_position=3 sample=A-S-3.wav offset=20260715 end=21058885
+        <region> seq_position=4 sample=A-S-4.wav offset=23385701 end=24279971
+        <region> seq_position=5 sample=A-S-2.wav offset=21319497 end=22095704 lokey=75 hikey=75 pitch_keycenter=76
+        <region> seq_position=6 sample=A-S-4.wav offset=24279971 end=25146533 lokey=75 hikey=75 pitch_keycenter=76
+        <region> seq_position=7 sample=A-S-3.wav offset=21058885 end=22044594 lokey=75 hikey=75 pitch_keycenter=76
+
+    <group> key=76
+        <region> seq_position=1 sample=A-S-1.wav offset=20296806 end=21166346
+        <region> seq_position=2 sample=A-S-2.wav offset=21319497 end=22095704
+        <region> seq_position=3 sample=A-S-3.wav offset=21058885 end=22044594
+        <region> seq_position=4 sample=A-S-4.wav offset=24279971 end=25146533
+        <region> seq_position=5 sample=A-S-2.wav offset=22095704 end=22867394 lokey=76 hikey=76 pitch_keycenter=77
+        <region> seq_position=6 sample=A-S-4.wav offset=25146533 end=25991629 lokey=76 hikey=76 pitch_keycenter=77
+        <region> seq_position=7 sample=A-S-3.wav offset=22044594 end=22901529 lokey=76 hikey=76 pitch_keycenter=77
+
+    <group> key=77
+        <region> seq_position=1 sample=A-S-1.wav offset=21166346 end=21988770
+        <region> seq_position=2 sample=A-S-2.wav offset=22095704 end=22867394
+        <region> seq_position=3 sample=A-S-3.wav offset=22044594 end=22901529
+        <region> seq_position=4 sample=A-S-4.wav offset=25146533 end=25991629
+        <region> seq_position=5 sample=A-S-2.wav offset=22867394 end=23721668 lokey=77 hikey=77 pitch_keycenter=78
+        <region> seq_position=6 sample=A-S-4.wav offset=25991629 end=26937121 lokey=77 hikey=77 pitch_keycenter=78
+        <region> seq_position=7 sample=A-S-3.wav offset=22901529 end=23755492 lokey=77 hikey=77 pitch_keycenter=78
+
+    <group> key=78
+        <region> seq_position=1 sample=A-S-1.wav offset=21988770 end=22827167
+        <region> seq_position=2 sample=A-S-2.wav offset=22867394 end=23721668
+        <region> seq_position=3 sample=A-S-3.wav offset=22901529 end=23755492
+        <region> seq_position=4 sample=A-S-4.wav offset=25991629 end=26937121
+        <region> seq_position=5 sample=A-S-2.wav offset=23721668 end=24519897 lokey=78 hikey=78 pitch_keycenter=79
+        <region> seq_position=6 sample=A-S-4.wav offset=26937121 end=27773129 lokey=78 hikey=78 pitch_keycenter=79
+        <region> seq_position=7 sample=A-S-3.wav offset=23755492 end=24474445 lokey=78 hikey=78 pitch_keycenter=79
+
+    <group> key=79
+        <region> seq_position=1 sample=A-S-1.wav offset=22827167 end=23570272
+        <region> seq_position=2 sample=A-S-2.wav offset=23721668 end=24519897
+        <region> seq_position=3 sample=A-S-3.wav offset=23755492 end=24474445
+        <region> seq_position=4 sample=A-S-4.wav offset=26937121 end=27773129
+        <region> seq_position=5 sample=A-S-2.wav offset=24519897 end=25228355 lokey=79 hikey=79 pitch_keycenter=80
+        <region> seq_position=6 sample=A-S-4.wav offset=27773129 end=28544757 lokey=79 hikey=79 pitch_keycenter=80
+        <region> seq_position=7 sample=A-S-3.wav offset=24474445 end=25189791 lokey=79 hikey=79 pitch_keycenter=80
+
+    <group> key=80
+        <region> seq_position=1 sample=A-S-1.wav offset=23570272 end=24342116
+        <region> seq_position=2 sample=A-S-2.wav offset=24519897 end=25228355
+        <region> seq_position=3 sample=A-S-3.wav offset=24474445 end=25189791
+        <region> seq_position=4 sample=A-S-4.wav offset=27773129 end=28544757
+        <region> seq_position=5 sample=A-S-2.wav offset=25228355 end=26176869 lokey=80 hikey=80 pitch_keycenter=81
+        <region> seq_position=6 sample=A-S-4.wav offset=28544757 end=29404031 lokey=80 hikey=80 pitch_keycenter=81
+        <region> seq_position=7 sample=A-S-3.wav offset=25189791 end=25843590 lokey=80 hikey=80 pitch_keycenter=81
+
+    <group> key=81
+        <region> seq_position=1 sample=A-S-1.wav offset=24342116 end=25558419
+        <region> seq_position=2 sample=A-S-2.wav offset=25228355 end=26176869
+        <region> seq_position=3 sample=A-S-3.wav offset=25189791 end=25843590
+        <region> seq_position=4 sample=A-S-4.wav offset=28544757 end=29404031
+        <region> seq_position=5 sample=A-S-2.wav offset=25228355 end=26176869
+        <region> seq_position=6 sample=A-S-4.wav offset=28544757 end=29404031
+        <region> seq_position=7 sample=A-S-3.wav offset=25189791 end=25843590
