@@ -1,6 +1,6 @@
 //=======================================================================
 //
-// Instrument Name: Charles' Dulcimer, recorder by Luis Flipe Costa
+// Instrument Name: Charles' Dulcimer, recorded by Luis Flipe Costa
 //
 //=======================================================================
 //
@@ -44,14 +44,14 @@
     label_cc$C_VOL=Close Vol
     label_cc$R_VOL=Room Vol
     label_cc$A_VOL=Ambient Vol
-	// label_cc$Attack=Attack
+    // label_cc$Attack=Attack
     label_cc$Release=Release
 
     // Set default values
     set_cc$C_VOL=127
     set_cc$R_VOL=64
     set_cc$A_VOL=64
-	// set_cc$Attack=0.01
+    // set_cc$Attack=0.01
 
 
 <global>
